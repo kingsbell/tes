@@ -111,7 +111,9 @@
                         $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$_POST[username]' AND password = '$_POST[password]'");
                         $cek = mysqli_num_rows($sql);
                         if($cek > 0) {
-                          $_SESSION['username'] = $_POST['username'];
+                          $data = mysqli_fetch_assoc($sql);
+                          $_SESSION['no_registrasi'] = $_POST['no_registrasi'];
+                          $_SESSION['username'] = $username;
                           echo "<meta http-equiv=refresh content=0;URL='index.php'>";
                         }else {
                           echo "Username dan Paswword SALAH!";

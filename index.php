@@ -73,12 +73,20 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle dropdown-toggle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">
+              <?php
+                echo $_SESSION['username'];
+              ?>
+            </span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Admin</h6>
+              <h6>
+                <?php
+                  echo $_SESSION['username'];
+                ?>
+              </h6>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -87,7 +95,9 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
                 <i class="bi bi-person"></i>
-                <span>Profil</span>
+                  <?php
+                    echo "<span 'href='users-profile.php?$_POST[$username]'>Profil</span>";
+                  ?>
               </a>
             </li>
             <li>
@@ -105,9 +115,11 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile.html">
+              <a class="dropdown-item d-flex align-items-center" href="users-profile-edit.php">
                 <i class="bi bi-gear"></i>
-                <span>Pengaturan Akun</span>
+                <?php
+                    echo "<span 'href='users-profile-edit.php?$_POST[$username]'>Pengaturan Akun</span>";
+                  ?>
               </a>
             </li>
             <li>

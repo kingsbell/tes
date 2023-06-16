@@ -72,12 +72,12 @@
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2">Admin</span>
+            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION['username'];?></span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6>Admin</h6>
+              <h6><?php echo $_SESSION['username'];?></h6>
             </li>
             <li>
               <hr class="dropdown-divider">
@@ -105,19 +105,13 @@
 
             <?php
               echo "<li>";
-              echo "<a href='users-profile-edit.php?no_registrasi=$data[no_registrasi]' class='dropdown-item d-flex align-items-center'>";
+              echo "<a href='users-profile-edit.php?=$no_registrasi[no_registrasi]' class='dropdown-item d-flex align-items-center'>";
               echo "<i class='bi bi-gear'></i>";
               echo "<span>Pengaturan Akun</span>";
               echo "</a>";
               echo "</li>";
             ?>
-
-            <!-- <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile-edit.php">
-                <i class="bi bi-gear"></i>
-                <span>Pengaturan Akun</span>
-              </a>
-            </li> -->
+            
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -153,7 +147,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="index.html">
+        <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -226,7 +220,11 @@
             <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
 
               <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <h2>Admin</h2>
+              <?php
+                $username = $_SESSION['username'];
+                echo "<h2>".$_SESSION['username']."</h2>";
+              ?>
+              
             </div>
           </div>
 
@@ -247,18 +245,20 @@
               <div class="tab-content pt-2">
               <div class="tab-pane fade show active profile-overview" id="profile-overview">
                   <?php
-                    $sql = mysqli_query($koneksi, "SELECT * FROM user ORDER BY no_registrasi DESC")
+                    $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$_SESSION[username]'");
                   ?>
                 <h5 class="card-title">Profile Details</h5>
                 <?php
-                  while ($data = mysqli_fetch_array($sql)) {
+                  
+                    $data = mysqli_fetch_array($sql);
+                    
                     echo "<div class='row'>";
                     echo "<div class='col-lg-3 col-md-4 label'> Nama </div>";
                     echo "<div class='col-lg-9 col-md-8'>".$data['nama']."</div>";
                     echo "</div>";
                     echo "<div class='row'>";
                     echo "<div class='col-lg-3 col-md-4 label'> Alamat </div>";
-                    echo "<div class='col-lg-9 col-md-8'>".$data['alamat']."</div>";
+                    echo "<div class='col-lg-9 col-md-8'>".$data['nama']."</div>";
                     echo "</div>";
                     echo "<div class='row'>";
                     echo "<div class='col-lg-3 col-md-4 label'> Kecamatan </div>";
@@ -276,8 +276,7 @@
                     echo "<div class='col-lg-3 col-md-4 label'> Provinsi </div>";
                     echo "<div class='col-lg-9 col-md-8'>".$data['provinsi']."</div>";
                     echo "</div>";
-                  }
-                ?>
+                  ?>
 
                 </div>
               </div><!-- End Bordered Tabs -->
