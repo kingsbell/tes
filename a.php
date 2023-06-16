@@ -1,46 +1,49 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Form Login</title>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body>
-  <h2>Form Login</h2>
+<?php
+                    $sql = mysqli_query($koneksi, "SELECT * FROM user ORDER BY no_registrasi DESC")
+                  ?>
+                <table>
+                  <tr>
+                  <th>Nama</th><th>Alamat</th><th>Kecamatan</th><th>Kelurahan</th><th>Kota</th><th>Provinsi</th>
+                  </tr>
+                  <?php
+                    while($data = mysqli_fetch_array($sql)) {
+                      echo "<tr>";
+                      echo "<td>".$data['nama']."</td>";
+                      echo "<td>".$data['alamat']."</td>";
+                      echo "<td>".$data['kecamatan']."</td>";
+                      echo "<td>".$data['kelurahan']."</td>";
+                      echo "<td>".$data['kota']."</td>";
+                      echo "<td>".$data['provinsi']."</td>";
+                      echo "<td><a href='users-profile-edit.php?id=$data[no_registrasi]'>ASA</a></td></tr>";
+                    }
+                  ?>
+                </tabel>
 
-  <form id="loginForm" action="login.php" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username"><br><br>
 
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password"><br><br>
 
-    <input type="submit" id="loginBtn" value="Login" disabled>
-  </form>
 
-  <script>
-    $(document).ready(function() {
-      // Fungsi untuk menguji koneksi
-      function testConnectivity() {
-        $.ajax({
-          url: 'https://www.google.com',
-          type: 'HEAD',
-          success: function() {
-            // Aktifkan tombol login jika koneksi stabil
-            $('#loginBtn').prop('disabled', false);
-          },
-          error: function() {
-            // Nonaktifkan tombol login jika koneksi tidak stabil
-            $('#loginBtn').prop('disabled', true);
-          }
-        });
-      }
 
-      // Panggil fungsi untuk menguji koneksi saat halaman dimuat
-      testConnectivity();
 
-      // Panggil fungsi untuk menguji koneksi saat pengguna mengisi form
-      $('#username, #password').on('input', testConnectivity);
-    });
-  </script>
-</body>
-</html>
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 label ">Nama</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Alamat</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Kecamatan</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Kelurahan</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Kota</div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-lg-3 col-md-4 label">Provinsi</div>
+                  </div>
