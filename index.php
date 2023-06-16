@@ -224,9 +224,7 @@
                   <h5 class="card-title">Pengaturan Lampu</h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-toggle-on"></i>
-                    </div>
+                      <a href="pages-login.php"><button class="bi bi-lightbulb card-icon rounded-circle d-flex align-items-center justify-content-center"></button></a>
                     <div class="ps-3">
                       <h6>Kontrol</h6>
                       <span class="text-muted small pt-2 ps-1">Pintar</span>
@@ -246,9 +244,7 @@
                   <h5 class="card-title">Pengaturan Lampu</h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-ui-radios-grid"></i>
-                    </div>
+                    <a href="pages-login.php"><button class="bi bi-ui-radios-grid card-icon rounded-circle d-flex align-items-center justify-content-center"></button></a>
                     <div class="ps-3">
                       <h6>Kontrol</h6>
                       <span class="text-muted small pt-2 ps-1">Lampu</span>
@@ -269,9 +265,7 @@
                   <h5 class="card-title">Pengaturan Lampu</h5>
 
                   <div class="d-flex align-items-center">
-                    <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-brightness-alt-high"></i>
-                    </div>
+                    <a href="pages-login.php"><button class="bi bi-brightness-alt-high card-icon rounded-circle d-flex align-items-center justify-content-center"></button></a>
                     <div class="ps-3">
                       <h6>Kontrol</h6>
                       <span class="text-muted small pt-2 ps-1">Cahaya</span>
@@ -401,14 +395,14 @@
                   <h6>Filter</h6>
                 </li>
 
-                <li><a class="dropdown-item" href="#">Today</a></li>
-                <li><a class="dropdown-item" href="#">This Month</a></li>
-                <li><a class="dropdown-item" href="#">This Year</a></li>
+                <li><a class="dropdown-item" href="#">Hari ini</a></li>
+                <li><a class="dropdown-item" href="#">Bulan ini</a></li>
+                <li><a class="dropdown-item" href="#">Tahun ini</a></li>
               </ul>
             </div>
 
             <div class="card-body pb-0">
-              <h5 class="card-title">News &amp; Updates <span>| Today</span></h5>
+              <h5 class="card-title">Berita <span>| Hari ini</span></h5>
 
               <div class="news">
                 <div class="post-item clearfix">
@@ -456,14 +450,14 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span>NiceAdmin</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span>SIPE2BARP</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
       <!-- You can delete the links only if you purchased the pro version. -->
       <!-- Licensing information: https://bootstrapmade.com/license/ -->
       <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      Designed by <a href="https://bootstrapmade.com/">Soleh & Yoga</a>
     </div>
   </footer><!-- End Footer -->
 
