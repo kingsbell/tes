@@ -9,6 +9,12 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+  <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -82,15 +88,15 @@
                     </div>
 
                     <div class="col-12">
-                      <label for="yourName" class="form-label">Kecamatan</label>
-                      <input type="text" name="kecamatan" class="form-control" id="yourName" required>
-                      <div class="invalid-feedback">Silahkan, masukan kecamatan Anda!</div>
-                    </div>
-
-                    <div class="col-12">
                       <label for="yourName" class="form-label">Kelurahan</label>
                       <input type="text" name="kelurahan" class="form-control" id="yourName" required>
                       <div class="invalid-feedback">Silahkan, masukan kelurahan Anda!</div>
+                    </div>
+
+                    <div class="col-12">
+                      <label for="yourName" class="form-label">kecamatan</label>
+                      <input type="text" name="kecamatan" class="form-control" id="yourName" required>
+                      <div class="invalid-feedback">Silahkan, masukan kecamatan Anda!</div>
                     </div>
 
                     <div class="col-12">
@@ -690,8 +696,8 @@
                     {
                         $nama = $_POST['nama'];
                         $alamat = $_POST['alamat'];
-                        $kecamatan = $_POST['kecamatan'];
                         $kelurahan = $_POST['kelurahan'];
+                        $kecamatan = $_POST['kecamatan'];
                         $kota = $_POST['kota'];
                         $provinsi = $_POST['provinsi'];
                         $username = $_POST['username'];
@@ -701,7 +707,7 @@
                         if($cek > 0) {
                           echo "nama atau username yang Anda masukan sudah ada!";
                         } else {
-                          mysqli_query($koneksi,"INSERT INTO user(nama,alamat,kecamatan,kelurahan,kota,provinsi,username,password) VALUES ('$nama','$alamat','$kecamatan','$kelurahan','$kota','$provinsi','$username','$password')");
+                          mysqli_query($koneksi,"INSERT INTO user(nama,alamat,kelurahan,kecamatan,kota,provinsi,username,password) VALUES ('$nama','$alamat','$kelurahan','$kecamatan','$kota','$provinsi','$username','$password')");
                           echo "Data sudah disimpan!";
                         }
                     }

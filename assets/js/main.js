@@ -1,6 +1,7 @@
 (function() {
   "use strict";
 
+
   /**
    * Notifikasi
    */
@@ -31,14 +32,6 @@
         }, 300)
       }, 3000)
     }, 100)
-  
-    // window.addEventListener('online', function() {
-    //   wifiIcon.style.color = '#00ff00';
-    // })
-  
-    // window.addEventListener('offline', function() {
-    //   wifiIcon.style.color = '#ff0000';
-    // })
   })
   
   
