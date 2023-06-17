@@ -676,7 +676,7 @@
                     <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                        <label class="form-check-label" for="acceptTerms">Saya setuju dengan <a href="termscon.html">Syarat dan Ketentuan</a></label>
+                        <label class="form-check-label" for="acceptTerms">Saya setuju dengan <a href="termscon.php">Syarat dan Ketentuan</a></label>
                         <div class="invalid-feedback">Anda harus menyetujui sebelum mendaftar.</div>
                       </div>
                     </div>

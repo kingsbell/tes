@@ -117,7 +117,6 @@
                           echo "<meta http-equiv=refresh content=0;URL='index.php'>";
                         }else {
                           echo "Username dan Paswword SALAH!";
-                          echo "<meta http-equiv=refresh content=2;URL='pages-login.php'>";
                         }
                       }
                   ?>

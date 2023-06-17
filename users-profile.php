@@ -103,14 +103,12 @@
               <hr class="dropdown-divider">
             </li>
 
-            <?php
-              echo "<li>";
-              echo "<a href='users-profile-edit.php?=$no_registrasi[no_registrasi]' class='dropdown-item d-flex align-items-center'>";
-              echo "<i class='bi bi-gear'></i>";
-              echo "<span>Pengaturan Akun</span>";
-              echo "</a>";
-              echo "</li>";
-            ?>
+            <li>
+              <a class="dropdown-item d-flex align-items-center" href="users-profile-edit.php">
+                <i class="bi bi-gear"></i>
+                <span>Pengaturan Akun</span>
+              </a>
+            </li>
             
             <li>
               <hr class="dropdown-divider">
@@ -247,18 +245,18 @@
                   <?php
                     $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$_SESSION[username]'");
                   ?>
-                <h5 class="card-title">Profile Details</h5>
+                <h5 class="card-title">Profil Lengkap</h5>
                 <?php
                   
                     $data = mysqli_fetch_array($sql);
                     
                     echo "<div class='row'>";
-                    echo "<div class='col-lg-3 col-md-4 label'> Nama </div>";
+                    echo "<div class='col-lg-3 col-md-4 label'> Nama Lengkap </div>";
                     echo "<div class='col-lg-9 col-md-8'>".$data['nama']."</div>";
                     echo "</div>";
                     echo "<div class='row'>";
                     echo "<div class='col-lg-3 col-md-4 label'> Alamat </div>";
-                    echo "<div class='col-lg-9 col-md-8'>".$data['nama']."</div>";
+                    echo "<div class='col-lg-9 col-md-8'>".$data['alamat']."</div>";
                     echo "</div>";
                     echo "<div class='row'>";
                     echo "<div class='col-lg-3 col-md-4 label'> Kecamatan </div>";
