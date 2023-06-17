@@ -663,7 +663,7 @@
                       <div class="input-group has-validation">
                         <span class="input-group-text" id="inputGroupPrepend">@</span>
                         <input type="text" name="username" class="form-control" id="yourUsername" required>
-                        <div class="invalid-feedback">Silahkan pilih username Anda!</div>
+                        <div class="invalid-feedback">Silahkan isi username Anda!</div>
                       </div>
                     </div>
 
@@ -676,12 +676,12 @@
                     <div class="col-12">
                       <div class="form-check">
                         <input class="form-check-input" name="terms" type="checkbox" value="" id="acceptTerms" required>
-                        <label class="form-check-label" for="acceptTerms">Saya setuju dengan <a href="termscon.php">Syarat dan Ketentuan</a></label>
+                        <label class="form-check-label" for="acceptTerms">Saya setuju dengan <a href="#">Syarat dan Ketentuan</a></label>
                         <div class="invalid-feedback">Anda harus menyetujui sebelum mendaftar.</div>
                       </div>
                     </div>
                     <div class="col-12">
-                      <button class="btn btn-primary w-100" type="submit" value ="Login" name ="proseslog">Buat Akun</button>
+                      <button class="btn btn-primary w-100" type="submit" value ="Login" name ="proseslog" data-bs-toggle="modal" data-bs-target="#modalDialogScrollable">Buat Akun</button>
                     </div>
                     <div class="col-12">
                       <p class="small mb-0">Sudah mempunyai akun? <a href="pages-login.php">Masuk</a></p>

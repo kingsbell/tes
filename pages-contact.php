@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Profil - SIPE2BARP</title>
+  <title>Kontak - SIPE2BARP</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -36,16 +36,18 @@
 </head>
 
 <body>
+
   <!-- ======= Koneksi ======= -->
   <div id="wifi-icon">
     <div id="toast-container">
+    </div>
   </div>
 
   <!-- ======= Spinner ======= -->
   <div class="spinner-wrapper">
     <img src = "assets/img/logo.png" role="status">
-      <span class="sr-only"></span>
-    </div>
+    <span class="sr-only"></span>
+  </div>
   </div>
 
   <!-- ======= Header ======= -->
@@ -62,31 +64,35 @@
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
 
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
-
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
             <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-            <span class="d-none d-md-block dropdown-toggle ps-2"><?php echo $_SESSION['username'];?></span>
+            <span class="d-none d-md-block dropdown-toggle ps-2">
+              <?php
+                echo $_SESSION['username'];
+              ?>
+            </span>
           </a><!-- End Profile Iamge Icon -->
 
           <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
             <li class="dropdown-header">
-              <h6><?php echo $_SESSION['username'];?></h6>
+              <h6>
+                <?php
+                  echo $_SESSION['username'];
+                ?>
+              </h6>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
                 <i class="bi bi-person"></i>
-                <span>Profil</span>
+                  <?php
+                    echo "<span 'href='users-profile.php?$_POST[$username]'>Profil</span>";
+                  ?>
               </a>
             </li>
             <li>
@@ -106,10 +112,11 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile-edit.php">
                 <i class="bi bi-gear"></i>
-                <span>Pengaturan Akun</span>
+                <?php
+                  echo "<span 'href='users-profile-edit.php?$_POST[$username]'>Pengaturan Akun</span>";
+                ?>
               </a>
             </li>
-            
             <li>
               <hr class="dropdown-divider">
             </li>
@@ -117,7 +124,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="pages-faq.php">
                 <i class="bi bi-question-circle"></i>
-                <span>Butuh Bantuan</span>
+                <span>Butuh Bantuan?</span>
               </a>
             </li>
             <li>
@@ -152,7 +159,7 @@
       </li><!-- End Dashboard Nav -->
 
       <li class="nav-item">
-        <a class="nav-link " href="#">
+        <a class="nav-link collapsed" href="users-profile.php">
           <i class="bi bi-person"></i>
           <span>Profil</span>
         </a>
@@ -166,7 +173,7 @@
       </li><!-- End F.A.Q Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-contact.php">
+        <a class="nav-link " href="#">
           <i class="bi bi-envelope"></i>
           <span>Hubungi Kami</span>
         </a>
@@ -193,90 +200,92 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Profil</h1>
+      <h1>Kontak</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item">Users</li>
-          <li class="breadcrumb-item active">Profil</li>
+          <li class="breadcrumb-item">Pages</li>
+          <li class="breadcrumb-item active">Kontak</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section profile">
-      <div class="row">
-        <div class="col-xl-4">
+    <section class="section contact">
 
-          <div class="card">
-            <div class="card-body profile-card pt-4 d-flex flex-column align-items-center">
+      <div class="row gy-4">
 
-              <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
-              <?php
-                $username = $_SESSION['username'];
-                echo "<h2>".$_SESSION['username']."</h2>";
-              ?>
-              
+        <div class="col-xl-6">
+
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="info-box card">
+                <i class="bi bi-geo-alt"></i>
+                <h3>Alamat</h3>
+                <p>Jl. Soekarno Hatta No.643,<br>Bandung, Indonesia</p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="info-box card">
+                <i class="bi bi-telephone"></i>
+                <h3>Hubungi Kami</h3>
+                <p>022 - 7320841<br>022 - 7320842</p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="info-box card">
+                <i class="bi bi-envelope"></i>
+                <h3>Email</h3>
+                <p>sekretariat@unibi.ac.id.<br>lemsisfo@unibi.ac.id</p>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="info-box card">
+                <i class="bi bi-clock"></i>
+                <h3>Open Hours</h3>
+                <p>Senin - Jumat<br>08.00 - 16.00</p>
+              </div>
             </div>
           </div>
 
         </div>
 
-        <div class="col-xl-8">
+        <div class="col-xl-6">
+          <div class="card p-4">
+            <form action="forms/contact.php" method="post" class="php-email-form">
+              <div class="row gy-4">
 
-          <div class="card">
-            <div class="card-body pt-3">
-              <!-- Bordered Tabs -->
-              <ul class="nav nav-tabs nav-tabs-bordered">
-
-                <li class="nav-item">
-                  <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#profile-overview">Overview</button>
-                </li>
-
-              </ul>
-              <div class="tab-content pt-2">
-              <div class="tab-pane fade show active profile-overview" id="profile-overview">
-                  <?php
-                    $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$_SESSION[username]'");
-                  ?>
-                <h5 class="card-title">Profil Lengkap</h5>
-                <?php
-                  
-                    $data = mysqli_fetch_array($sql);
-                    
-                    echo "<div class='row'>";
-                    echo "<div class='col-lg-3 col-md-4 label'> Nama Lengkap </div>";
-                    echo "<div class='col-lg-9 col-md-8'>".$data['nama']."</div>";
-                    echo "</div>";
-                    echo "<div class='row'>";
-                    echo "<div class='col-lg-3 col-md-4 label'> Alamat </div>";
-                    echo "<div class='col-lg-9 col-md-8'>".$data['alamat']."</div>";
-                    echo "</div>";
-                    echo "<div class='row'>";
-                    echo "<div class='col-lg-3 col-md-4 label'> Kecamatan </div>";
-                    echo "<div class='col-lg-9 col-md-8'>".$data['kecamatan']."</div>";
-                    echo "</div>";
-                    echo "<div class='row'>";
-                    echo "<div class='col-lg-3 col-md-4 label'> Kelurahan </div>";
-                    echo "<div class='col-lg-9 col-md-8'>".$data['kelurahan']."</div>";
-                    echo "</div>";
-                    echo "<div class='row'>";
-                    echo "<div class='col-lg-3 col-md-4 label'> Kota </div>";
-                    echo "<div class='col-lg-9 col-md-8'>".$data['kota']."</div>";
-                    echo "</div>";
-                    echo "<div class='row'>";
-                    echo "<div class='col-lg-3 col-md-4 label'> Provinsi </div>";
-                    echo "<div class='col-lg-9 col-md-8'>".$data['provinsi']."</div>";
-                    echo "</div>";
-                  ?>
-
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Nama Anda" required>
                 </div>
-              </div><!-- End Bordered Tabs -->
 
-            </div>
+                <div class="col-md-6 ">
+                  <input type="email" class="form-control" name="email" placeholder="Emain Anda" required>
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Subject" required>
+                </div>
+
+                <div class="col-md-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Pesan" required></textarea>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Pesan Anda telah dikrim. Terimakasih!</div>
+
+                  <button type="submit">Kirim Pesan</button>
+                </div>
+
+              </div>
+            </form>
           </div>
 
         </div>
+
       </div>
+
     </section>
 
   </main><!-- End #main -->
