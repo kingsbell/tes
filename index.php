@@ -12,6 +12,10 @@
   <meta content="" name="description">
   <meta content="" name="keywords">
 
+  <!-- Jquery -->
+  <script
+  src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
+
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
@@ -224,34 +228,125 @@
             <!-- Sales Card -->
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card sales-card">
-
                 <div class="card-body">
                   <h5 class="card-title">Pengaturan Lampu</h5>
-
                   <div class="d-flex align-items-center">
-                      <a href="pages-login.php"><button class="bi bi-lightbulb card-icon rounded-circle d-flex align-items-center justify-content-center"></button></a>
+
+                    <button type="button" class="btn btn-primary bi bi-ui-radios-grid card-icon rounded-circle d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#modalDialogScrollable"></button>
+                    <div class="modal fade" id="modalDialogScrollable" tabindex="-1">
+                      <div class="modal-dialog modal-dialog-scrollable">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Pilih Ruangan</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="container modal-body">
+                          <?php
+                          if (isset($_POST['proseslog'])) {
+                            $status = isset($_POST['Status']) ? 1 : 0;
+                            $sliderFilter = $_POST['sliderFilter'];
+                            
+                            // Update Status
+                            $update = mysqli_query($koneksi, "UPDATE ruangan SET status = '$status' WHERE no_registrasi");
+
+                            // Update Slider
+                            $update_filter = mysqli_query($koneksi, "UPDATE slider_filter SET filter = '$sliderFilter' WHERE no_registrasi");
+                            
+                          }
+                          // Ambil Status
+                          $sql_status = mysqli_query($koneksi, 'SELECT status FROM ruangan WHERE no_registrasi');
+                          $data = mysqli_fetch_array($sql_status);
+                          $Status = $data['status'];
+
+                          // Ambil Slider
+                          $sql_filter = mysqli_query($koneksi, "SELECT filter FROM slider_filter WHERE no_registrasi");
+                          $data = mysqli_fetch_array($sql_filter);
+                          $sliderFilter = $data['filter'];
+                          ?>
+                          <form method="POST" action="">
+                            <div class="row">
+                                <div class="col-6 ">
+                                    Atur Kecerahan
+                                </div>
+                                <br></br>
+                                <div class="col-6">
+                                  <i class="bi bi-brightness-low"></i>
+                                  <input type="range" id="range" name="sliderFilter" min="10" max="100" value="<?php echo $sliderFilter;?>">
+                                  <i class="bi bi-brightness-high"></i>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-8">
+                                  Ruangan 1
+                                </div>
+                                <br></br>
+                                <div class="col-4">
+                                  <input type="checkbox" id="check1" class="b" name="Status" value="1" <?php echo $Status ? 'checked' : ''; ?>>
+                                  <label for="check1" class="button a"></label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+                              <button type="submit" class="btn btn-primary" name="proseslog">Simpan perubahan</button>
+                            </div>
+                        </div>
+                      </form>
+                      </div>
+                    </div><!-- End Modal Dialog Scrollable-->
                     <div class="ps-3">
                       <h6>Kontrol</h6>
-                      <span class="text-muted small pt-2 ps-1">Pintar</span>
-
+                      <span class="text-muted small pt-2 ps-1">Lampu</span>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div><!-- End Sales Card -->
 
             <!-- Revenue Card -->
             <div class="col-xxl-4 col-md-6">
               <div class="card info-card revenue-card">
-
                 <div class="card-body">
                   <h5 class="card-title">Pengaturan Lampu</h5>
-
                   <div class="d-flex align-items-center">
-                    <a href="pages-login.php"><button class="bi bi-ui-radios-grid card-icon rounded-circle d-flex align-items-center justify-content-center"></button></a>
+                    
+                  <button type="button" class="btn btn-success bi bi-lightbulb card-icon rounded-circle d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#basicModal"></button>
+                    <div class="modal fade" id="basicModal" tabindex="-1">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Informasi Tentang Lampu</h5>
+                            <button type="button" class="btn-close" data-label="Close"></button>
+                          </div>
+                          <div class="container modal-body">
+                              <div class="row">
+                                <div class="col-6 ">
+                                    Kecerahan
+                                </div>
+                                <br></br>
+                                <div class="col-6">
+                                <?php echo $sliderFilter;  ?>
+                                </div>
+                              </div>
+                              <div class="row">
+                                <div class="col-6 ">
+                                    Ruangan 1
+                                </div>
+                                <br></br>
+                                <div class="col-6">
+                                <?php echo $Status ? 'On' : 'Off';  ?>
+                                </div>
+                              </div>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Tutup</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <div class="ps-3">
-                      <h6>Kontrol</h6>
+                      <h6>Tentang</h6>
                       <span class="text-muted small pt-2 ps-1">Lampu</span>
 
                     </div>
@@ -272,8 +367,8 @@
                   <div class="d-flex align-items-center">
                     <a href="pages-login.php"><button class="bi bi-brightness-alt-high card-icon rounded-circle d-flex align-items-center justify-content-center"></button></a>
                     <div class="ps-3">
-                      <h6>Kontrol</h6>
-                      <span class="text-muted small pt-2 ps-1">Cahaya</span>
+                      <h6>Jadwal</h6>
+                      <span class="text-muted small pt-2 ps-1">Lampu</span>
 
                     </div>
                   </div>
@@ -365,26 +460,6 @@
               </div>
             </div><!-- End Reports -->
 
-            <!-- Recent -->
-            <div class="col-12">
-              <div class="card recent-sales overflow-auto">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Hari ini</a></li>
-                    <li><a class="dropdown-item" href="#">Bulan ini</a></li>
-                    <li><a class="dropdown-item" href="#">Tahun ini</a></li>
-                  </ul>
-                </div>
-
-              </div>
-            </div><!-- End Recent Sales -->
-
           </div>
         </div><!-- End Left side columns -->
 
@@ -412,32 +487,32 @@
               <div class="news">
                 <div class="post-item clearfix">
                   <img src="assets/img/news-1.jpg" alt="">
-                  <h4><a href="#">Nihil blanditiis at in nihil autem</a></h4>
-                  <p>Sit recusandae non aspernatur laboriosam. Quia enim eligendi sed ut harum...</p>
+                  <h4><a href="https://www.cnbcindonesia.com/news/20230623085544-4-448561/kabar-gembira-tarif-listrik-juli--september-resmi-gak-naik">Berita gembira! Tarif Listrik Juli - September Resmi tidak Naik</a></h4>
+                  <p class="text-truncate" style="max-width: 150px;">Pemerintah melalui Kementerian Energi dan Sumber Daya Mineral (ESDM)...</p>
                 </div>
 
                 <div class="post-item clearfix">
                   <img src="assets/img/news-2.jpg" alt="">
-                  <h4><a href="#">Quidem autem et impedit</a></h4>
-                  <p>Illo nemo neque maiores vitae officiis cum eum turos elan dries werona nande...</p>
+                  <h4><a href="https://www.liputan6.com/tekno/read/5204317/teknologi-di-balik-lampu-pintar-hannochs-bisa-diperintah-tanpa-koneksi-internet">Teknologi di Balik Lampu Pintar Hannchos, Bisa Diperintah Tanpa Koneksi Internet</a></h4>
+                  <p class="text-truncate" style="max-width: 150px;">Salah satu produk lampu pintar Hannochs yang cukup populer adalah seri Smart LED Bluetooth 9W. Keunggulan dari produk ini adalah...</p>
                 </div>
 
                 <div class="post-item clearfix">
                   <img src="assets/img/news-3.jpg" alt="">
-                  <h4><a href="#">Id quia et et ut maxime similique occaecati ut</a></h4>
-                  <p>Fugiat voluptas vero eaque accusantium eos. Consequuntur sed ipsam et totam...</p>
+                  <h4><a href="https://www.liputan6.com/tekno/read/2156231/keren-bohlam-lampu-dilengkapi-speaker-dan-wifi-repeater">Keren, Bohlam Lampu Dilengkapi Speaker dan WiFi Repeater</a></h4>
+                  <p class="text-truncate" style="max-width: 150px;">Perusahan pencahayaan Sengled meluncurkan beberapa lampu LED pintar generasi terbaru yang dilengkapi speaker dan WiFi Repeater....</p>
                 </div>
 
                 <div class="post-item clearfix">
                   <img src="assets/img/news-4.jpg" alt="">
-                  <h4><a href="#">Laborum corporis quo dara net para</a></h4>
-                  <p>Qui enim quia optio. Eligendi aut asperiores enim repellendusvel rerum cuder...</p>
+                  <h4><a href="https://www.antaranews.com/berita/3220845/philips-kenalkan-lampu-pintar-terkoneksi">Philips Kenalkan Lampu Pintar Terkoneksi</a></h4>
+                  <p class="text-truncate" style="max-width: 150px;">Signify mengumumkan kehadiran rangkaian produk terbaru lampu pintar terkoneksi, Philips Smart LED Connected by WiZ, sekaligus kampanye...</p>
                 </div>
 
                 <div class="post-item clearfix">
                   <img src="assets/img/news-5.jpg" alt="">
-                  <h4><a href="#">Et dolores corrupti quae illo quod dolor</a></h4>
-                  <p>Odit ut eveniet modi reiciendis. Atque cupiditate libero beatae dignissimos eius...</p>
+                  <h4><a href="https://www.sindonews.com/terkait/lampu-pintar">Kumpulan Informasi Terkait Lampu Pintar</a></h4>
+                  <p class="text-truncate" style="max-width: 150px;">Kumpulan berita dan informasi terkaitLampu Pintar - - KST Banten Bantu Lampu Penerangan di Pul Truk Pandeglang. Hadirkan Modernisasi Pendidikan Digital,...</p>
                 </div>
 
               </div><!-- End sidebar recent posts-->

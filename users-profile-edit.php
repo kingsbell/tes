@@ -859,11 +859,26 @@
                     </div>
 
                     <div class="text-center">
-                      <button type="submit" name="proseslog" class="btn btn-primary">Edit</button>
+                      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#smallModal">Edit</button>
+                    </div>
+                    <div class="modal fade" id="smallModal" tabindex="-1">
+                      <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">Edit</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" arial-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            Apakah Anda yakin ingin merubah data pribadi Anda?
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutp</button>
+                            <button type="submit" name="proseslog" class="btn btn-primary">Simpan Perubahan</button>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </form><!-- End Profile Edit Form -->
-                  
-                    
                 </div>
 
                 <div class="tab-pane fade pt-3" id="profile-settings">

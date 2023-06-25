@@ -222,7 +222,7 @@
 
           <div class="card basic">
             <div class="card-body">
-              <h5 class="card-title">Basic Questions</h5>
+              <h5 class="card-title">asdasda</h5>
 
               <div>
                 <h6>1. Nisi ut ut exercitationem voluptatem esse sunt rerum?</h6>
