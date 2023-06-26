@@ -244,12 +244,10 @@
                           <?php
                           if (isset($_POST['proseslog'])) {
                             $status1 = isset($_POST['Status1']) ? 1 : 0;
-                            // $status2 = isset($_POST['Status2']) ? 1 : 0;
                             $sliderFilter = $_POST['sliderFilter'];
                             
                             // Update Status
                             $update = mysqli_query($koneksi, "UPDATE ruangan SET status = '$status1' WHERE no_registrasi");
-                            // $update2 = mysqli_query($koneksi, "UPDATE ruangan SET status = '$status2' WHERE no_registrasi");
 
                             // Update Slider
                             $update_filter = mysqli_query($koneksi, "UPDATE slider_filter SET filter = '$sliderFilter' WHERE no_registrasi");
@@ -259,11 +257,6 @@
                           $sql_status = mysqli_query($koneksi, "SELECT * FROM ruangan WHERE no_registrasi");
                           $data = mysqli_fetch_array($sql_status);
                           $Status = $data['status'];
-
-                          // Ambil Status Ruangan 2
-                          // $sql_status2 = mysqli_query($koneksi, "SELECT status FROM ruangan WHERE no_registrasi");
-                          // $data2 = mysqli_fetch_array($sql_status2);
-                          // $status2 = $data2['status'];
 
                           // Ambil Slider
                           $sql_filter = mysqli_query($koneksi, "SELECT filter FROM slider_filter WHERE no_registrasi");
