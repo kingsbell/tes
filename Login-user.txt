@@ -1,6 +1,2 @@
 Username    : admin
-Password    : 123
-
-
-
-Test Test asasa
+Password    : admin

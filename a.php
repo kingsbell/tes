@@ -4,17 +4,14 @@
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Dashboard - SIPE2BARP</title>
+  <title>F.A.Q - SIPE2BARP</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
-
-  <!-- Jquery -->
-  <script
-  src="https://code.jquery.com/jquery-3.7.0.slim.js" integrity="sha256-7GO+jepT9gJe9LB4XFf8snVOjX3iYNb0FHYr5LI1N5c=" crossorigin="anonymous"></script>
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -35,13 +32,15 @@
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
+
   <!-- ======= Koneksi ======= -->
   <div id="wifi-icon">
-        <div id="toast-container">
-        </div>
+      <div id="toast-container">
+      </div>
   </div>
 
   <!-- ======= Spinner ======= -->
@@ -50,11 +49,9 @@
       <span class="sr-only"></span>
     </div>
   </div>
-  
+
   <!-- ======= Header ======= -->
   <header id="header" class="header fixed-top d-flex align-items-center">
-
-  
 
     <div class="d-flex align-items-center justify-content-between">
       <a href="index.php" class="logo d-flex align-items-center">
@@ -76,7 +73,7 @@
         <li class="nav-item dropdown pe-3">
 
           <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
-            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle dropdown-toggle">
+            <img src="assets/img/profile-img.jpg" alt="Profile" class="rounded-circle">
             <span class="d-none d-md-block dropdown-toggle ps-2">
               <?php
                 echo $_SESSION['username'];
@@ -99,7 +96,7 @@
             <li>
               <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
                 <i class="bi bi-person"></i>
-                  <?php
+                <?php
                     echo "<span 'href='users-profile.php?$_POST[$username]'>Profil</span>";
                   ?>
               </a>
@@ -119,7 +116,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="users-profile-edit.php">
+              <a class="dropdown-item d-flex align-items-center" href="users-profile.php">
                 <i class="bi bi-gear"></i>
                 <?php
                     echo "<span 'href='users-profile-edit.php?$_POST[$username]'>Pengaturan Akun</span>";
@@ -131,7 +128,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="pages-faq.php">
+              <a class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-question-circle"></i>
                 <span>Butuh Bantuan?</span>
               </a>
@@ -141,7 +138,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="logout.php">
+              <a class="dropdown-item d-flex align-items-center" href="pages-login.php">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Keluar</span>
               </a>
@@ -161,7 +158,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="index.php">
+        <a class="nav-link collapsed" href="index.php">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -170,12 +167,12 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="users-profile.php">
           <i class="bi bi-person"></i>
-          <span>Profil</span>
+          <span>Profile</span>
         </a>
       </li><!-- End Profile Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-faq.php">
+        <a class="nav-link " href="#">
           <i class="bi bi-question-circle"></i>
           <span>F.A.Q</span>
         </a>
@@ -209,283 +206,279 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Dashboard</h1>
+      <h1>Kebanyakan Orang Bertanya</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-          <li class="breadcrumb-item active">Dashboard</li>
+          <li class="breadcrumb-item">Pages</li>
+          <li class="breadcrumb-item active">Kebanyakan Orang Bertanya</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
-    <section class="section dashboard">
+    <section class="section faq">
       <div class="row">
+        <div class="col-lg-6">
 
-        <!-- Left side columns -->
-        <div class="col-lg-8">
-          <div class="row">
+          <div class="card basic">
+            <div class="card-body">
+              <h5 class="card-title">pertanyaan</h5>
 
-            <!-- Sales Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card sales-card">
-                <div class="card-body">
-                  <h5 class="card-title">Pengaturan Lampu</h5>
-                  <div class="d-flex align-items-center">
-
-                    <button type="button" class="btn btn-primary bi bi-ui-radios-grid card-icon rounded-circle d-flex align-items-center justify-content-center" data-bs-toggle="modal" data-bs-target="#modalDialogScrollable"></button>
-                    <div class="modal fade" id="modalDialogScrollable" tabindex="-1">
-                      <div class="modal-dialog modal-dialog-scrollable">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title">Pilih Ruangan</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="container modal-body">
-                          <?php
-                          if (isset($_POST['proseslog'])) {
-                            $status = isset($_POST['Status']) ? 1 : 0;
-                            $sliderFilter = $_POST['sliderFilter'];
-                            
-                            // Update Status
-                            $update = mysqli_query($koneksi, "UPDATE ruangan SET status = '$status' WHERE no_registrasi");
-
-                            // Update Slider
-                            $update_filter = mysqli_query($koneksi, "UPDATE slider_filter SET filter = '$sliderFilter' WHERE no_registrasi");
-                            
-                          }
-                          // Ambil Status
-                          $sql_status = mysqli_query($koneksi, 'SELECT status FROM ruangan WHERE no_registrasi');
-                          $data = mysqli_fetch_array($sql_status);
-                          $Status = $data['status'];
-
-                          // Ambil Slider
-                          $sql_filter = mysqli_query($koneksi, "SELECT filter FROM slider_filter WHERE no_registrasi");
-                          $data = mysqli_fetch_array($sql_filter);
-                          $sliderFilter = $data['filter'];
-                          ?>
-                          <form method="POST" action="">
-                            <div class="row">
-                                <div class="col-6 ">
-                                    Atur Kecerahan
-                                </div>
-                                <br></br>
-                                <div class="col-6">
-                                  <i class="bi bi-brightness-low"></i>
-                                  <input type="range" id="range" name="sliderFilter" min="10" max="100" value="<?php echo $sliderFilter;?>">
-                                  <i class="bi bi-brightness-high"></i>
-                                </div>
-                              </div>
-                              <div class="row">
-                                <div class="col-8">
-                                  Ruangan 1
-                                </div>
-                                <br></br>
-                                <div class="col-4">
-                                  <input type="checkbox" id="check1" class="b" name="Status" value="1" <?php echo $Status ? 'checked' : ''; ?>>
-                                  <label for="check1" class="button a"></label>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-                              <button type="submit" class="btn btn-primary" name="proseslog">Simpan perubahan</button>
-                            </div>
-                        </div>
-                      </form>
-                      </div>
-                    </div><!-- End Modal Dialog Scrollable-->
-                    <div class="ps-3">
-                      <h6>Kontrol</h6>
-                      <span class="text-muted small pt-2 ps-1">Lampu</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div><!-- End Sales Card -->
-
-            <!-- Revenue Card -->
-            <div class="col-xxl-4 col-md-6">
-              <div class="card info-card revenue-card">
-                <div class="card-body">
-                  <h5 class="card-title">Pengaturan Lampu</h5>
-                  <div class="d-flex align-items-center">
-                          
-                    <div class="ps-3">
-                      <h6>Tentang</h6>
-                      <span class="text-muted small pt-2 ps-1">Lampu</span>
-
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div><!-- End Revenue Card -->
-
-            <!-- Customers Card -->
-            <div class="col-xxl-4 col-xl-12">
-
-              <div class="card info-card customers-card">
-
-                <div class="card-body">
-                  <h5 class="card-title">Pengaturan Lampu</h5>
-
-                  <div class="d-flex align-items-center">
-                    <a href="pages-login.php"><button class="bi bi-brightness-alt-high card-icon rounded-circle d-flex align-items-center justify-content-center"></button></a>
-                    <div class="ps-3">
-                      <h6>Jadwal</h6>
-                      <span class="text-muted small pt-2 ps-1">Lampu</span>
-
-                    </div>
-                  </div>
-
-                </div>
+              <div>
+              <h6>1. Apa itu Smart Lamp?</h6>
+                <p>Smart lamp atau bisa di sebut lampu pintar dapat lebih memudahkan anda untuk menyalakan atau mematikan lampu dan dapat juga mengatur pencahayaan di rumah lebih mudah dan efisien.</p>
               </div>
 
-            </div><!-- End Customers Card -->
-
-            <!-- Reports -->
-            <div class="col-12">
-              <div class="card">
-
-                <div class="filter">
-                  <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-                  <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                    <li class="dropdown-header text-start">
-                      <h6>Filter</h6>
-                    </li>
-
-                    <li><a class="dropdown-item" href="#">Hari</a></li>
-                    <li><a class="dropdown-item" href="#">Bulan</a></li>
-                    <li><a class="dropdown-item" href="#">Tahun</a></li>
-                  </ul>
-                </div>
-
-                <div class="card-body">
-                  <h5 class="card-title">Laporan <span>/ Hari ini</span></h5>
-
-                  <!-- Line Chart -->
-                  <div id="reportsChart"></div>
-
-                  <script>
-                    document.addEventListener("DOMContentLoaded", () => {
-                      new ApexCharts(document.querySelector("#reportsChart"), {
-                        series: [{
-                          name: 'On/Off',
-                          data: [31, 40, 28, 51, 42, 82, 56],
-                        }, {
-                          name: 'Warna Cahaya',
-                          data: [11, 32, 45, 32, 34, 52, 41]
-                        }, {
-                          name: 'Insensitas Cahaya',
-                          data: [15, 11, 32, 18, 9, 24, 11]
-                        }],
-                        chart: {
-                          height: 350,
-                          type: 'area',
-                          toolbar: {
-                            show: false
-                          },
-                        },
-                        markers: {
-                          size: 4
-                        },
-                        colors: ['#4154f1', '#2eca6a', '#ff771d'],
-                        fill: {
-                          type: "gradient",
-                          gradient: {
-                            shadeIntensity: 1,
-                            opacityFrom: 0.3,
-                            opacityTo: 0.4,
-                            stops: [0, 90, 100]
-                          }
-                        },
-                        dataLabels: {
-                          enabled: false
-                        },
-                        stroke: {
-                          curve: 'smooth',
-                          width: 2
-                        },
-                        xaxis: {
-                          type: 'datetime',
-                          categories: ["2018-09-19T00:00:00.000Z", "2018-09-19T01:30:00.000Z", "2018-09-19T02:30:00.000Z", "2018-09-19T03:30:00.000Z", "2018-09-19T04:30:00.000Z", "2018-09-19T05:30:00.000Z", "2018-09-19T06:30:00.000Z"]
-                        },
-                        tooltip: {
-                          x: {
-                            format: 'dd/MM/yy HH:mm'
-                          },
-                        }
-                      }).render();
-                    });
-                  </script>
-                  <!-- End Line Chart -->
-
-                </div>
-
+              <div class="pt-2">
+              <h6>2. Kegunaan dari smart lamp ?</h6>
+                <p>smart lamp dapat berguna dengan baik dan mudah dalam menggunakannya.</p>
               </div>
-            </div><!-- End Reports -->
 
+              <div class="pt-2">
+              <h6> 3. bagaimana cara menggunakannya ?</h6>
+                <p>cara penggunaan sangat mudah anda tinggal ketampilan dashboard lalu klik lampu.</p>
+              </div>
+
+            </div>
           </div>
-        </div><!-- End Left side columns -->
 
-        <!-- Right side columns -->
-        <div class="col-lg-4">
-
-          <!-- News & Updates Traffic -->
+          <!-- F.A.Q Group 1 -->
           <div class="card">
-            <div class="filter">
-              <a class="icon" href="#" data-bs-toggle="dropdown"><i class="bi bi-three-dots"></i></a>
-              <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-                <li class="dropdown-header text-start">
-                  <h6>Filter</h6>
-                </li>
+            <div class="card-body">
+              <h5 class="card-title">Ada lagi yang ada cari ?</h5>
 
-                <li><a class="dropdown-item" href="#">Hari ini</a></li>
-                <li><a class="dropdown-item" href="#">Bulan ini</a></li>
-                <li><a class="dropdown-item" href="#">Tahun ini</a></li>
-              </ul>
+              <div class="accordion accordion-flush" id="faq-group-1">
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsOne-1" type="button" data-bs-toggle="collapse">
+                      Keunggulan Lampu pintar ?
+                    </button>
+                  </h2>
+                  <div id="faqsOne-1" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
+                    <div class="accordion-body">
+                      Keunggulan lampu ini dapat mengatur pencahayaan di dalam ruangan dan juga dapat merubah warna lampu sesuai keinginan.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsOne-2" type="button" data-bs-toggle="collapse">
+                      Apa keuntungan dari lampu pijar ?
+                    </button>
+                  </h2>
+                  <div id="faqsOne-2" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
+                    <div class="accordion-body">
+                    Lampu pijar sangat sesuai digunakan sebagai pencahayaan aktivitas dalam ruangan seperti misalnya untuk lampu belajar atau lampu meja.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsOne-3" type="button" data-bs-toggle="collapse">
+                      kelebihan dan kekurangan lampu led ?
+                    </button>
+                  </h2>
+                  <div id="faqsOne-3" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
+                    <div class="accordion-body">
+                    1. Kelebihan Lampu Jenis LED. Kelebihan utama dari lampu jenis LED adalah jauh lebih hemat energi dibandingkan dengan lampu pijar dan lampu bohlam standar.
+                    2. Kekurangan Lampu LED. Lampu jenis LED tidak tahan apabila terkena panas dalam waktu yang lama.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsOne-4" type="button" data-bs-toggle="collapse">
+                      apa itu lampu pintar ?
+                    </button>
+                  </h2>
+                  <div id="faqsOne-4" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
+                    <div class="accordion-body">
+                      Lampu pintar seperti namanya lampu ini sangat mudah untuk di kontrol.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsOne-5" type="button" data-bs-toggle="collapse">
+                      apa perbedaan lampu LED dan lampu biasa ?
+                    </button>
+                  </h2>
+                  <div id="faqsOne-5" class="accordion-collapse collapse" data-bs-parent="#faq-group-1">
+                    <div class="accordion-body">
+                    LED mampu mengubah 70% energi yang diperoleh menjadi cahaya sementara lampu biasa menggunakan 8% energi yang diperoleh menjadi cahaya dan sisanya dikeluarkan sebagai panas.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
             </div>
+          </div><!-- End F.A.Q Group 1 -->
 
-            <div class="card-body pb-0">
-              <h5 class="card-title">Berita <span>| Hari ini</span></h5>
+        </div>
 
-              <div class="news">
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-1.jpg" alt="">
-                  <h4><a href="https://www.cnbcindonesia.com/news/20230623085544-4-448561/kabar-gembira-tarif-listrik-juli--september-resmi-gak-naik">Berita gembira! Tarif Listrik Juli - September Resmi tidak Naik</a></h4>
-                  <p class="text-truncate" style="max-width: 150px;">Pemerintah melalui Kementerian Energi dan Sumber Daya Mineral (ESDM)...</p>
+        <div class="col-lg-6">
+
+          <!-- F.A.Q Group 2 -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Kelebihan lampu pintar</h5>
+
+              <div class="accordion accordion-flush" id="faq-group-2">
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-1" type="button" data-bs-toggle="collapse">
+                      Hemat daya dan tahan lama
+                    </button>
+                  </h2>
+                  <div id="faqsTwo-1" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
+                    <div class="accordion-body">
+                      kelebihan pertama dari smart lampu led yaitu tahan lama dapat di pastikan lampu led tersebut tahan lama dan juga hemat daya.
+                    </div>
+                  </div>
                 </div>
 
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-2.jpg" alt="">
-                  <h4><a href="https://www.liputan6.com/tekno/read/5204317/teknologi-di-balik-lampu-pintar-hannochs-bisa-diperintah-tanpa-koneksi-internet">Teknologi di Balik Lampu Pintar Hannchos, Bisa Diperintah Tanpa Koneksi Internet</a></h4>
-                  <p class="text-truncate" style="max-width: 150px;">Salah satu produk lampu pintar Hannochs yang cukup populer adalah seri Smart LED Bluetooth 9W. Keunggulan dari produk ini adalah...</p>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-2" type="button" data-bs-toggle="collapse">
+                      kontrol melalui smartphone
+                    </button>
+                  </h2>
+                  <div id="faqsTwo-2" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
+                    <div class="accordion-body">
+                      bisa di lihat dari namanya smart lamp sudah berarti lampu pintar yang dapat dengan mudah kita kontrol atau kendalikan dengan mudah.
+                    </div>
+                  </div>
                 </div>
 
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-3.jpg" alt="">
-                  <h4><a href="https://www.liputan6.com/tekno/read/2156231/keren-bohlam-lampu-dilengkapi-speaker-dan-wifi-repeater">Keren, Bohlam Lampu Dilengkapi Speaker dan WiFi Repeater</a></h4>
-                  <p class="text-truncate" style="max-width: 150px;">Perusahan pencahayaan Sengled meluncurkan beberapa lampu LED pintar generasi terbaru yang dilengkapi speaker dan WiFi Repeater....</p>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-3" type="button" data-bs-toggle="collapse">
+                      memberikan kisan indah pada hunian
+                    </button>
+                  </h2>
+                  <div id="faqsTwo-3" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
+                    <div class="accordion-body">
+                      karna smartlamp ini memiliki fitur untuk merubah pencahayaan dan warna.
+                    </div>
+                  </div>
                 </div>
 
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-4.jpg" alt="">
-                  <h4><a href="https://www.antaranews.com/berita/3220845/philips-kenalkan-lampu-pintar-terkoneksi">Philips Kenalkan Lampu Pintar Terkoneksi</a></h4>
-                  <p class="text-truncate" style="max-width: 150px;">Signify mengumumkan kehadiran rangkaian produk terbaru lampu pintar terkoneksi, Philips Smart LED Connected by WiZ, sekaligus kampanye...</p>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-4" type="button" data-bs-toggle="collapse">
+                      Warna cahaya bisa di ubah sesuai keinginan ?
+                    </button>
+                  </h2>
+                  <div id="faqsTwo-4" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
+                    <div class="accordion-body">
+                      tetntu saja karna di dalam nya sudah memiliki fitur untuk merubah warna sesuai keinginan.
+                    </div>
+                  </div>
                 </div>
 
-                <div class="post-item clearfix">
-                  <img src="assets/img/news-5.jpg" alt="">
-                  <h4><a href="https://www.sindonews.com/terkait/lampu-pintar">Kumpulan Informasi Terkait Lampu Pintar</a></h4>
-                  <p class="text-truncate" style="max-width: 150px;">Kumpulan berita dan informasi terkaitLampu Pintar - - KST Banten Bantu Lampu Penerangan di Pul Truk Pandeglang. Hadirkan Modernisasi Pendidikan Digital,...</p>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsTwo-5" type="button" data-bs-toggle="collapse">
+                      apakah dapat berfungsi lama ?
+                    </button>
+                  </h2>
+                  <div id="faqsTwo-5" class="accordion-collapse collapse" data-bs-parent="#faq-group-2">
+                    <div class="accordion-body">
+                      lampu tersebut sangat kuat dan tidak mudah rusak atau bisa di bilang tidak sekali pakai bisa di gunakan hingga 2 sampe 3 tahun ke depan..
+                    </div>
+                  </div>
                 </div>
 
-              </div><!-- End sidebar recent posts-->
+              </div>
 
             </div>
-          </div><!-- End News & Updates -->
+          </div><!-- End F.A.Q Group 2 -->
 
-        </div><!-- End Right side columns -->
+          <!-- F.A.Q Group 3 -->
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">hal terpenting dalam smart lamp</h5>
+
+              <div class="accordion accordion-flush" id="faq-group-3">
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsThree-1" type="button" data-bs-toggle="collapse">
+                      pengaturan cahaya ?
+                    </button>
+                  </h2>
+                  <div id="faqsThree-1" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
+                    <div class="accordion-body">
+                      pengguna jangan teralalu mengatur kapasitas pencahayaan dengan full.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsThree-2" type="button" data-bs-toggle="collapse">
+                      apakah memiliki fitur lain ?
+                    </button>
+                  </h2>
+                  <div id="faqsThree-2" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
+                    <div class="accordion-body">
+                      tentu saja tidak karna hanya terdapat 2 fitur yaitu pencahayaan dan juga warna.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsThree-3" type="button" data-bs-toggle="collapse">
+                      apa untung nya menggunakan smart lamp ?
+                    </button>
+                  </h2>
+                  <div id="faqsThree-3" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
+                    <div class="accordion-body">
+                      keuntungan dari smart lamp yaitu memudahkan dan juga praktis saat di gunakan mungkin jika anda sedang cape untuk berjalan dan mematikan lampu dengan memencet saklar dengan smart lampu ini anda tidak perlu berdiri dari termpat duduk untuk mematikan lampu anda hanya tinggal mengklik saja.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsThree-4" type="button" data-bs-toggle="collapse">
+                     apa beda nya smart lampu dan lampu biasa ?
+                    </button>
+                  </h2>
+                  <div id="faqsThree-4" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
+                    <div class="accordion-body">
+                      smart lampu ini dapat memudahkan kita dalam memakainya dan juga kita dapat mengatur cahayanya sesuai dengan keinginan kita berbeda dengan lampu biasa yang hanya dapat digunakan saja.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" data-bs-target="#faqsThree-5" type="button" data-bs-toggle="collapse">
+                      jika barang tidak sesuai apakah uang bisa kembali ?
+                    </button>
+                  </h2>
+                  <div id="faqsThree-5" class="accordion-collapse collapse" data-bs-parent="#faq-group-3">
+                    <div class="accordion-body">
+                      tentu saja uang bisa kembali jika barang yang di kembalikan dalam keadaan rusak dan tidak berfungsi saat pertama kali di beli dan di coba.
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+            </div>
+          </div><!-- End F.A.Q Group 3 -->
+
+        </div>
 
       </div>
     </section>
@@ -516,9 +509,6 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 
 </body>
 

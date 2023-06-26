@@ -105,10 +105,10 @@
                   </form>
                   <?php
                       if(isset($_POST['proseslog'])) {
-                        $username = $_POST['username'];
-                        $password = $_POST['password'];
+                        $username = mysqli_real_escape_string($koneksi, $_POST['username']);
+                        $password = mysqli_real_escape_string($koneksi, $_POST['password']);
 
-                        $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$_POST[username]' AND password = '$_POST[password]'");
+                        $sql = mysqli_query($koneksi, "SELECT * FROM user WHERE username = '$username' AND password = '$password'");
                         $cek = mysqli_num_rows($sql);
                         if($cek > 0) {
                           $data = mysqli_fetch_assoc($sql);
