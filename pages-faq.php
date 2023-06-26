@@ -222,7 +222,7 @@
 
           <div class="card basic">
             <div class="card-body">
-              <h5 class="card-title">pertanyaan</h5>
+              <h5 class="card-title">Pertanyaan</h5>
 
               <div>
               <h6>1. Apa itu Smart Lamp ?</h6>
